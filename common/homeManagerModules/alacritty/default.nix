@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
   font = {
-    package = pkgs.nerdfonts.override { fonts = [ "ProFont" ]; };
-    name = "ProFont IIx Nerd Font";
+    package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+    name = "JetBrainsMono Nerd Font";
     size = 16;
   };
 in {
@@ -10,7 +10,7 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 0.85;
+      window.opacity = 0.75;
       colors.draw_bold_text_with_bright_colors = true;
       font = {
         size = font.size;

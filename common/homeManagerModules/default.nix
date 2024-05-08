@@ -1,7 +1,6 @@
 {
   alacritty = ./alacritty;
   cursor = ./cursor;
-  git = ./git;
   gpg = ./gpg;
   gtk = ./gtk;
   kitty = ./kitty;

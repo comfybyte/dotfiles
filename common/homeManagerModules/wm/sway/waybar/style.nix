@@ -1,9 +1,9 @@
 let
   bg = "rgba(0, 0, 0, 0.95)";
-  highlight = "#C4A7E7";
+  highlight = "#FED1C1";
   font = {
-    family = "Zpix Nerd Font";
-    size = "14px";
+    family = "Ubuntu Nerd Font";
+    size = "16px";
   };
 in ''
   * {

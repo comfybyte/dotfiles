@@ -1,28 +1,26 @@
-{ pkgs, inputs, system, ... }:
-let
-  theme = {
-    pkg = pkgs.rose-pine-gtk-theme;
-    name = "rose-pine";
-  };
-  icon = {
-    pkg = pkgs.rose-pine-icon-theme;
-    name = "rose-pine";
-  };
-in {
-  home.sessionVariables.GTK_THEME = theme.name;
+{ pkgs, ... }: {
+  xdg.enable = true;
+
   gtk = {
     enable = true;
-    # iconTheme = {
-    #   name = icon.name;
-    #   package = icon.pkg;
-    # };
-    # theme = {
-    #   name = theme.name;
-    #   package = theme.pkg;
-    # };
+
+    theme = {
+      package = pkgs.catppuccin-gtk.override {
+        variant = "mocha";
+        accents = [ "rosewater" ];
+        tweaks = [ "black" ];
+      };
+      name = "Catppuccin-Mocha-Standard-Rosewater-Dark";
+    };
+
+    iconTheme = {
+      name = "rose-pine-moon";
+      package = pkgs.rose-pine-icon-theme;
+    };
+
     font = {
-      package = inputs.extra.packages.${system}.zpix-pixel-nerd-font;
-      name = "Zpix Nerd Font";
+      package = pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; };
+      name = "Ubuntu Nerd Font";
       size = 16;
     };
   };

@@ -1,5 +1,5 @@
 { lib, ... }: {
-  programs.nixvim = let enableBrowser = false;
+  programs.nixvim = let enableBrowser = true;
   in {
     globals = lib.mkIf enableBrowser {
       loaded_netrw = 1;

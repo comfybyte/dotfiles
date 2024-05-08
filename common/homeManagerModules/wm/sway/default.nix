@@ -1,14 +1,25 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, system, lib, ... }:
 let
+  swayfx = {
+    enable = true;
+    config = ''
+      blur enable
+      blur_xray disable
+      blur_passes 2
+      blur_radius 4
+      default_dim_inactive 0.3
+
+      corner_radius 0
+      shadows disable
+    '';
+  };
   terminal = "${pkgs.alacritty}/bin/alacritty";
   launcher = "${pkgs.rofi}/bin/rofi -show run";
   file_browser = "${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
-  status_bar = "${pkgs.waybar}/bin/waybar";
-  playerctl = "${pkgs.playerctl}/bin/playerctl";
-  screenshot = let extra = inputs.extra.packages.${system};
+  screenshot = let nixprs = inputs.nixprs.packages.${system};
   in {
-    screen = "${extra.sshot}/bin/sshot --screen -o $HOME/imgs/screenshots";
-    area = "${extra.sshot}/bin/sshot --area -o $HOME/imgs/screenshots";
+    screen = "${nixprs.sshot}/bin/sshot --screen -o $HOME/imgs/screenshots";
+    area = "${nixprs.sshot}/bin/sshot --area -o $HOME/imgs/screenshots";
   };
 in {
   imports = [ ./waybar ];
@@ -17,6 +28,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
+    package = lib.mkIf swayfx.enable pkgs.swayfx;
     systemd.enable = true;
 
     config = {
@@ -26,8 +38,8 @@ in {
       window.titlebar = false;
 
       bars = [{
-        command = status_bar;
-        position = "bottom"; # necessário porquê o default é `null`.
+        command = "waybar";
+        position = "bottom";
         mode = "dock";
       }];
 
@@ -37,18 +49,17 @@ in {
       };
 
       gaps = {
-        inner = 0;
-        outer = 0;
+        inner = 1;
+        outer = 1;
         smartBorders = "on";
       };
 
-      # Docs: (https://man.archlinux.org/man/sway.5.en#CRITERIA)
       assigns = {
-        "1" = [{ class = "Alacritty"; }];
-        "2" = [ { class = "Firefox"; } { class = "Floorp"; } ];
-        "3" = [{ class = "nemo"; }];
-        "5" = [{ class = "discord"; }];
-        "6" = [{ class = "Krita"; }];
+        "1" = [{ title = "Alacritty"; }];
+        "2" = [ { title = "Firefox"; } { title = "Floorp"; } ];
+        "3" = [{ title = "Nemo"; }];
+        "5" = [{ title = "Discord"; }];
+        "6" = [{ title = "Krita"; }];
         "7" = [ { title = "Steam"; } { title = "Lutris"; } ];
         "9" = [{ title = "Obsidian"; }];
       };
@@ -78,11 +89,6 @@ in {
           "${mod}+n" = "exec ${file_browser}";
           "Print" = "exec ${screenshot.screen}";
           "Shift+Print" = "exec ${screenshot.area}";
-
-          "XF86AudioPlay" = "exec ${playerctl} play";
-          "XF86AudioPause" = "exec ${playerctl} pause";
-          "XF86AudioNext" = "exec ${playerctl} next";
-          "XF86AudioPrev" = "exec ${playerctl} previous";
         };
         workspaceBinds = {
           switch = {
@@ -127,13 +133,17 @@ in {
 
       startup = [
         { command = "${pkgs.swww}/bin/swww init"; }
-        {
-          command = terminal;
-        }
-        # Rodar direto do `pkgs.fcitx5` não lê os addons.
+        { command = terminal; }
+        { command = "waybar"; }
         { command = "fcitx5"; }
-        { command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"; }
-        { command = "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"; }
+        {
+          command =
+            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";
+        }
+        {
+          command =
+            "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";
+        }
       ];
     };
     extraConfig = ''
@@ -145,6 +155,7 @@ in {
       for_window [window_type="menu"] floating enable
       for_window [window_role="About"] floating enable
       for_window [title="Save File"] floating enable
+      ${if swayfx.enable then swayfx.config else ""}
     '';
   };
 

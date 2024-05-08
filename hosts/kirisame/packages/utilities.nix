@@ -1,5 +1,7 @@
 { pkgs, stable, inputs, system, ... }:
-let extra = inputs.extra.packages.${system};
+let
+  nixprs = inputs.nixprs.packages.${system};
+  quick-stack = inputs.quick-stack.packages.${system};
 in {
   programs.fish.enable = true;
   programs.zsh.enable = true;
@@ -39,7 +41,6 @@ in {
     uutils-coreutils
     du-dust
     bat
-    gitui
     handlr-regex
     stable.zenith
     transmission
@@ -50,30 +51,24 @@ in {
     toybox
     gtk4
     keepassxc
+    yazi
 
     nix-prefetch-git
-    nodePackages.serve
     zip
     unzip
     unrar
-    wdisplays
     git
     imv
     mpv
-    parted
     keychain
     cachix
-    cloc
-    shellcheck
     wmctrl
     betterdiscordctl
     p7zip
     virt-manager
     nixos-shell
     nix-tree
-    mlt
     ffmpeg
-    dooit
 
     nodejs_18
     cargo
@@ -83,7 +78,7 @@ in {
     clojure
     clj-kondo
 
-    extra.sshot
-    extra.retag
+    quick-stack.default
+    nixprs.sshot
   ];
 }
