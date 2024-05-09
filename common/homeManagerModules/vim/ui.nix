@@ -3,10 +3,13 @@
     colorscheme = "rose-pine";
     colorschemes.rose-pine = {
       enable = true;
-      disableItalics = true;
-      style = "moon";
-      transparentBackground = true;
-      transparentFloat = true;
+      settings = {
+        variant = "moon";
+        styles = {
+          italic = false;
+          transparency = true;
+        };
+      };
     };
     plugins = {
       lualine = {

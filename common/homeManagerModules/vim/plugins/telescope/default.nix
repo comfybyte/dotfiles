@@ -39,7 +39,7 @@
       enable = true;
       extensions = {
         # Enable Telescope's File Browser.
-        file_browser = lib.mkIf enableBrowser {
+        file-browser = lib.mkIf enableBrowser {
           enable = true;
           hijackNetrw = true;
           # Shows all files, even .gitignore'd ones.

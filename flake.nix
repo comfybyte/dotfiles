@@ -7,7 +7,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-21.11";
+    stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixprs.url = "github:comfybyte/nixprs";
     steam-tui.url = "github:dmadisetti/steam-tui";
     quick-stack.url = "github:comfybyte/quick-stack";

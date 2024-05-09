@@ -7,6 +7,7 @@
     ./security
     ./networking
     ./boot
+    ./input.nix
     ../../common/users
     inputs.self.nixosModules.steam
   ];

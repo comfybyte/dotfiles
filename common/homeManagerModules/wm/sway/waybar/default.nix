@@ -1,7 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, stable, ... }: {
   home.packages = [ (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
   programs.waybar = {
     enable = true;
+    package = stable.waybar;
     style = import ./style.nix;
     systemd.target = "sway-session.target";
     settings = {

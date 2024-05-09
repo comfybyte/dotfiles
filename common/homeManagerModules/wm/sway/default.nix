@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, lib, ... }:
+{ pkgs, inputs, stable, system, lib, ... }:
 let
   swayfx = {
     enable = true;
@@ -28,7 +28,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = lib.mkIf swayfx.enable pkgs.swayfx;
+    package = lib.mkIf swayfx.enable stable.swayfx;
     systemd.enable = true;
 
     config = {
@@ -134,8 +134,6 @@ in {
       startup = [
         { command = "${pkgs.swww}/bin/swww init"; }
         { command = terminal; }
-        { command = "waybar"; }
-        { command = "fcitx5"; }
         {
           command =
             "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";
@@ -157,15 +155,5 @@ in {
       for_window [title="Save File"] floating enable
       ${if swayfx.enable then swayfx.config else ""}
     '';
-  };
-
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk
-      fcitx5-mozc
-      fcitx5-hangul
-      libsForQt5.fcitx5-qt
-    ];
   };
 }

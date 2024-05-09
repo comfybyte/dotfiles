@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, stable, system, ... }:
 let wayland = inputs.wayland.packages.${system};
 in {
   programs.wireshark = {
@@ -19,7 +19,7 @@ in {
     obsidian
     emote # Emoji picker.
     firefox-devedition
-    floorp
+    stable.floorp
     librewolf
     tor-browser
     hyprpicker # Colour picker.
