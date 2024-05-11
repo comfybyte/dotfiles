@@ -8,7 +8,7 @@ in {
   environment.systemPackages = with pkgs; [
     libsForQt5.okular # PDF viewer.
     libsForQt5.kdenlive # video editor.
-    vlc # video player.
+    stable.vlc # video player.
     xfce.tumbler
     discord
     tenacity # Audio editor.

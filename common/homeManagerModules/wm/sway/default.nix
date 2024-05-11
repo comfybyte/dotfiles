@@ -49,15 +49,15 @@ in {
       };
 
       gaps = {
-        inner = 1;
-        outer = 1;
+        inner = 0;
+        outer = 0;
         smartBorders = "on";
       };
 
       assigns = {
         "1" = [{ title = "Alacritty"; }];
         "2" = [ { title = "Firefox"; } { title = "Floorp"; } ];
-        "3" = [{ title = "Nemo"; }];
+        "3" = [{ title = "nemo"; }];
         "5" = [{ title = "Discord"; }];
         "6" = [{ title = "Krita"; }];
         "7" = [ { title = "Steam"; } { title = "Lutris"; } ];
@@ -153,7 +153,7 @@ in {
       for_window [window_type="menu"] floating enable
       for_window [window_role="About"] floating enable
       for_window [title="Save File"] floating enable
-      ${if swayfx.enable then swayfx.config else ""}
+      ${lib.optionalString swayfx.enable swayfx.config}
     '';
   };
 }
