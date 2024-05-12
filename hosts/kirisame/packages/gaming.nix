@@ -32,7 +32,6 @@
 
     osu-lazer-bin
     winetricks
-    minecraft
     prismlauncher
   ];
 }
