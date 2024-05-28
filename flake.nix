@@ -11,6 +11,7 @@
     nixprs.url = "github:comfybyte/nixprs";
     steam-tui.url = "github:dmadisetti/steam-tui";
     quick-stack.url = "github:comfybyte/quick-stack";
+    swayfx.url = "github:willpower3309/swayfx";
 
     home = {
       url = "github:nix-community/home-manager/master";

@@ -1,0 +1,98 @@
+(defwindow overlay
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "100%"
+    :height "100%"
+    :anchor "top left")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "overlay"
+  (box 
+    :orientation "v"
+    :class "nyan"
+    "todo!()"))
+
+(defwindow lingering
+  :monitor 0
+  :geometry (geometry
+    :x "93%"
+    :y "2%"
+    :width "40px"
+    :height "96%"
+    :anchor "top left")
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  :namespace "lingering"
+  (box 
+    :class "lingering"
+    :orientation "v"
+    :width "100%"
+    :height "100%"
+    :space-evenly false
+    :spacing 10
+    :halign "center"
+
+    (systray :orientation "v")
+
+    (box
+      :class "sysinfo-group"
+      :orientation "v"
+      :space-evenly false
+      :spacing 8
+      (sysinfo :symbol "CPU" "${round(EWW_RAM.used_mem_perc, 0)}%")
+      (sysinfo :symbol "MEM" "${round(EWW_CPU.avg, 0)}%"))
+    (time)
+  )
+)
+
+(defwidget sysinfo [symbol]
+  (box 
+    :class "sysinfo"
+    :orientation "v"
+    :halign "start"
+    :valign "center"
+    (label
+      :class "sysinfo-symbol"
+      :text symbol)
+    (children))
+)
+
+(defwidget time []
+  (box
+    :class "time"
+    :orientation "v"
+    :halign "start"
+    :valign "center"
+    (hour-text)
+    (minute-text)
+    (second-text))
+)
+
+(defwidget hour-text []
+  (box
+    :class "hour"
+    :orientation "h"
+    hour)
+)
+
+(defwidget minute-text []
+  (box
+    :class "minute"
+    :orientation "h"
+    minute)
+)
+
+(defwidget second-text []
+  (box
+    :class "second"
+    :orientation "h"
+    second)
+)
+
+(defpoll hour :interval "1s" "date +%H")
+(defpoll minute :interval "1s" "date +%M")
+(defpoll second :interval "1s" "date +%S")

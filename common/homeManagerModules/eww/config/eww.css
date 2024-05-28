@@ -1,0 +1,29 @@
+* {
+  all: unset;
+  font-family: "Ubuntu Nerd Font";
+}
+
+.nyan {
+  background: transparent;
+  font-size: 14px;
+}
+
+.lingering {
+  color: #FED1C1;
+  background-color: #000;
+  border: 1px solid #121;
+  font-size: 24px;
+  padding: 8px 2px;
+}
+
+.sysinfo-symbol {
+  color: #fff;
+}
+
+.hour-text, .second-text {
+  color: #e0def4; /* rose pine moon's text */
+}
+
+.minute-text {
+  color: #908caa /* rose pine moon's subtle */
+}

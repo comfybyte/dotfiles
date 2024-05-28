@@ -11,4 +11,5 @@
   vim = ./vim;
   shells = import ./shells;
   wm = import ./wm;
+  eww = import ./eww;
 }

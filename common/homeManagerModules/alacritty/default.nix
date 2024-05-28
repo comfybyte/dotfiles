@@ -1,9 +1,11 @@
 { pkgs, ... }:
 let
   font = {
-    package = pkgs.monocraft;
-    name = "Monocraft Nerd Font";
-    size = 16;
+    package = pkgs.nerdfonts.override {
+      fonts = [ "Gohu" ];
+    };
+    name = "GohuFont 11 Nerd Font";
+    size = 18;
   };
 in {
   home.packages = [ font.package ];

@@ -1,4 +1,4 @@
-{ pkgs, inputs, stable, system, lib, ... }:
+{ pkgs, inputs, system, lib, ... }:
 let
   swayfx = {
     enable = true;
@@ -21,6 +21,15 @@ let
     screen = "${nixprs.sshot}/bin/sshot --screen -o $HOME/imgs/screenshots";
     area = "${nixprs.sshot}/bin/sshot --area -o $HOME/imgs/screenshots";
   };
+  widgets = {
+    overlay = "${pkgs.eww}/bin/eww open overlay --toggle";
+    lingering = "${pkgs.eww}/bin/eww open lingering --toggle --duration 15s";
+  };
+
+  left = "h";
+  right = "l";
+  up = "k";
+  down = "j";
 in {
   imports = [ ./waybar ];
 
@@ -28,8 +37,10 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = lib.mkIf swayfx.enable stable.swayfx;
-    systemd.enable = true;
+    package = lib.mkIf swayfx.enable inputs.swayfx.packages.${system}.default;
+    # NOTE: temporary fix for swayfx crashing during build with:
+    # "Cannot create GLES2 renderer: no DRM FD available"
+    checkConfig = false;
 
     config = {
       inherit terminal;
@@ -66,10 +77,6 @@ in {
 
       keybindings = let
         mod = "Mod4";
-        left = "h";
-        right = "l";
-        up = "k";
-        down = "j";
 
         controlBinds = {
           "${mod}+q" = "kill";
@@ -78,6 +85,7 @@ in {
         };
         layoutBinds = {
           "${mod}+t" = "layout default";
+          "${mod}+r" = ''mode "resize"'';
 
           "${mod}+f" = "fullscreen";
           "${mod}+Space" = "floating toggle";
@@ -89,6 +97,8 @@ in {
           "${mod}+n" = "exec ${file_browser}";
           "Print" = "exec ${screenshot.screen}";
           "Shift+Print" = "exec ${screenshot.area}";
+          "${mod}+b" = "exec ${widgets.overlay}";
+          "${mod}+Shift+b" = "exec ${widgets.lingering}";
         };
         workspaceBinds = {
           switch = {
@@ -144,6 +154,22 @@ in {
         }
       ];
     };
+
+    # modes = {
+    #   resize = {
+    #     escape = "mode default";
+    #     return = "mode default";
+    #     ${left} = "resize shrink width 10px";
+    #     "shift+${left}" = "resize shrink width 30px";
+    #     ${right} = "resize grow width 10px";
+    #     "shift+${right}" = "resize grow width 30px";
+    #     ${down} = "resize shrink height 10px";
+    #     "shift+${down}" = "resize shrink height 30px";
+    #     ${up} = "resize grow height 10px";
+    #     "shift+${up}" = "resize grow height 30px";
+    #   };
+    # };
+
     extraConfig = ''
       for_window [window_role="pop-up"] floating enable
       for_window [window_role="bubble"] floating enable

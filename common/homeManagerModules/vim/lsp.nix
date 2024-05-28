@@ -22,8 +22,13 @@
           cssls.enable = true;
           taplo.enable = true; # TOML.
           clojure-lsp.enable = true;
+          gleam = {
+            enable = true;
+            package = null; # source from devshell.
+          };
           rust-analyzer = {
             enable = true;
+            # source from devshell.
             installCargo = false;
             installRustc = false;
             package = null;

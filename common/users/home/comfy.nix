@@ -19,6 +19,7 @@ in {
       ssh
       tmux
       vim
+      eww
       shells.fish
       shells.zsh
       shells.starship
