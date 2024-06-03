@@ -3,7 +3,7 @@ let
   highlight = "#FED1C1";
   font = {
     family = "Ubuntu Nerd Font";
-    size = "16px";
+    size = "14px";
   };
 in ''
   * {

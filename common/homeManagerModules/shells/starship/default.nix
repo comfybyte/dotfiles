@@ -3,8 +3,24 @@
     enable = true;
     settings = {
       command_timeout = 3000;
-      format = "$username$hostname$directory$nix_shell$character";
-      add_newline = false;
+      format = builtins.concatStringsSep "" [
+        "$username"
+        "$hostname"
+        "$directory"
+        "$nix_shell"
+        "$rust"
+        "$gleam"
+        "$erlang"
+        "$lua"
+        "$fennel"
+        "$deno"
+        "$nodejs"
+        "$git_branch"
+        "$cmd_duration"
+        "$character"
+        "$linebreak"
+      ];
+      add_newline = true;
       username = {
         show_always = true;
         format = "\\[[$user]($style)@";
@@ -17,7 +33,7 @@
         format = "[$hostname]($style)\\]";
       };
       directory = {
-        format = " <[$path]($style)[$read_only]($read_only_style)>";
+        format = " in <[$path]($style)[$read_only]($read_only_style)> ";
         read_only = " <no touchie!>>";
         truncation_length = 2;
       };

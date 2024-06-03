@@ -52,6 +52,7 @@ in {
     gtk4
     keepassxc
     yazi
+    jot
 
     nix-prefetch-git
     zip

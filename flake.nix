@@ -12,6 +12,7 @@
     steam-tui.url = "github:dmadisetti/steam-tui";
     quick-stack.url = "github:comfybyte/quick-stack";
     swayfx.url = "github:willpower3309/swayfx";
+    gaming.url = "github:fufexan/nix-gaming";
 
     home = {
       url = "github:nix-community/home-manager/master";
@@ -41,6 +42,7 @@
       "https://nixpkgs-wayland.cachix.org"
       "https://nix-community.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
+      "https://nix-gaming.cachix.org"
     ];
 
     trusted-public-keys = [
@@ -48,6 +50,7 @@
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 }

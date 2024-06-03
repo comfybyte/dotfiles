@@ -1,5 +1,6 @@
 {
-  imports = [ ./cmp ./telescope ./fugitive ./markdown-preview ./oil ];
+  imports =
+    [ ./cmp ./telescope ./fugitive ./markdown-preview ./oil ./presence ];
 
   programs.nixvim.plugins = {
     nix.enable = true;

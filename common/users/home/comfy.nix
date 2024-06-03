@@ -25,6 +25,7 @@ in {
       shells.starship
       wm.sway
       wm.niri
+      wm.i3
     ];
 
   home = {

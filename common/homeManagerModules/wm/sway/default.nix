@@ -50,7 +50,7 @@ in {
 
       bars = [{
         command = "waybar";
-        position = "bottom";
+        position = "top";
         mode = "dock";
       }];
 
