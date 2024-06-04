@@ -26,6 +26,9 @@
 
       vim = "nvim";
       vi = "nvim";
+
+      # edit nixconfig.
+      en = "cd ~/nixcfg && $EDITOR .";
     };
 
     shellInit = ''
