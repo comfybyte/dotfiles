@@ -23,7 +23,7 @@ let
   };
   widgets = {
     overlay = "${pkgs.eww}/bin/eww open overlay --toggle";
-    lingering = "${pkgs.eww}/bin/eww open lingering --toggle --duration 15s";
+    sysmon = "${pkgs.eww}/bin/eww open sysmon --toggle";
   };
 
   left = "h";
@@ -60,8 +60,8 @@ in {
       };
 
       gaps = {
-        inner = 0;
-        outer = 0;
+        inner = 1;
+        outer = 1;
         smartBorders = "on";
       };
 
@@ -98,7 +98,7 @@ in {
           "Print" = "exec ${screenshot.screen}";
           "Shift+Print" = "exec ${screenshot.area}";
           "${mod}+b" = "exec ${widgets.overlay}";
-          "${mod}+Shift+b" = "exec ${widgets.lingering}";
+          "${mod}+Shift+b" = "exec ${widgets.sysmon}";
         };
         workspaceBinds = {
           switch = {

@@ -1,10 +1,8 @@
-{ pkgs, ... }:
+{  inputs, system, ... }:
 let
   font = {
-    package = pkgs.nerdfonts.override {
-      fonts = [ "CascadiaCode" ];
-    };
-    name = "CaskaydiaCove Nerd Font Mono";
+    package = inputs.nixprs.packages.${system}.zpix-nerd-font;
+    name = "Zpix Nerd Font";
     size = 18;
   };
 in {
@@ -12,7 +10,13 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 0.8;
+      window = {
+        opacity = 0.8;
+        padding = {
+          x = 2;
+          y = 2;
+        };
+      };
       colors.draw_bold_text_with_bright_colors = true;
       font = {
         size = font.size;

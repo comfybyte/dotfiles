@@ -15,45 +15,44 @@
     :class "nyan"
     "todo!()"))
 
-(defwindow lingering
+(defwindow sysmon
   :monitor 0
   :geometry (geometry
-    :x "93%"
-    :y "2%"
-    :width "40px"
-    :height "96%"
-    :anchor "top left")
+    :x "10px"
+    :y "10px"
+    :width "20%"
+    :height "28px"
+    :anchor "top right")
   :stacking "fg"
   :exclusive false
   :focusable false
-  :namespace "lingering"
+  :namespace "sysmon"
   (box 
-    :class "lingering"
-    :orientation "v"
+    :class "sysmon"
+    :orientation "h"
     :width "100%"
     :height "100%"
-    :space-evenly false
+    :space-evenly true
     :spacing 10
     :halign "center"
-
-    (systray :orientation "v")
+    :valign "center"
 
     (box
       :class "sysinfo-group"
-      :orientation "v"
+      :orientation "h"
       :space-evenly false
       :spacing 8
-      (sysinfo :symbol "CPU" "${round(EWW_RAM.used_mem_perc, 0)}%")
-      (sysinfo :symbol "MEM" "${round(EWW_CPU.avg, 0)}%"))
-    (time)
+      (sysinfo :symbol "CPU " "${round(EWW_CPU.avg, 0)}%"))
+      (sysinfo :symbol "MEM " "${round(EWW_RAM.used_mem_perc, 0)}%")
+    (clock)
   )
 )
 
 (defwidget sysinfo [symbol]
   (box 
     :class "sysinfo"
-    :orientation "v"
-    :halign "start"
+    :orientation "h"
+    :halign "center"
     :valign "center"
     (label
       :class "sysinfo-symbol"
@@ -61,16 +60,15 @@
     (children))
 )
 
-(defwidget time []
+(defwidget clock []
   (box
-    :class "time"
-    :orientation "v"
-    :halign "start"
+    :class "clock"
+    :orientation "h"
+    :halign "center"
     :valign "center"
-    (hour-text)
-    (minute-text)
-    (second-text))
+    (time-text))
 )
+
 
 (defwidget hour-text []
   (box
@@ -93,6 +91,14 @@
     second)
 )
 
+(defwidget time-text []
+  (box
+    :class "second"
+    :orientation "h"
+    time)
+)
+
 (defpoll hour :interval "1s" "date +%H")
 (defpoll minute :interval "1s" "date +%M")
 (defpoll second :interval "1s" "date +%S")
+(defpoll time :interval "1s" "date +%H:%M:%S")

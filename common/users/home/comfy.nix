@@ -1,41 +1,45 @@
-{ inputs, lib, config, ... }:
+{ inputs, config, system, ... }:
 let
   id = {
     name = "Mai";
     email = "comfybyte@proton.me";
     gpgKey.id = "9C8577B87600DD7A";
   };
-  usingNeovim = config.programs.nixvim.enable;
 in {
-  imports = with inputs.self.homeManagerModules;
-    [
-      alacritty
-      cursor
-      gpg
-      gtk
-      kitty
-      qt
-      rofi
-      ssh
-      tmux
-      vim
-      eww
-      shells.fish
-      shells.zsh
-      shells.starship
-      wm.sway
-      wm.niri
-      wm.i3
-    ];
+  imports = with inputs.self.homeManagerModules; [
+    alacritty
+    cursor
+    gpg
+    gtk
+    kitty
+    qt
+    rofi
+    ssh
+    tmux
+    # vim
+    eww
+    shells.fish
+    shells.zsh
+    shells.starship
+    wm.sway
+    wm.niri
+    wm.i3
+  ];
 
   home = {
     username = "comfy";
     stateVersion = "23.05";
     homeDirectory = "/home/comfy";
-    sessionVariables = {
-      EDITOR = lib.mkIf usingNeovim "nvim";
-      GTK_USE_PORTAL = "1";
-    };
+    sessionVariables = { GTK_USE_PORTAL = "1"; };
+    packages = let nyanvim = inputs.nyanvim.legacyPackages.${system};
+    in [
+      (nyanvim.withConfig {
+        opts = {
+          undodir = "${config.home.homeDirectory}/.cache/nvim/undodir";
+          undofile = true;
+        };
+      })
+    ];
   };
   programs.git = {
     enable = true;
@@ -46,7 +50,6 @@ in {
       key = id.gpgKey.id;
     };
     extraConfig = {
-      core.editor = lib.mkIf usingNeovim "nvim";
       init.defaultBranch = "main";
       push.default = "current";
     };

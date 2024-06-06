@@ -8,7 +8,7 @@
   rofi = ./rofi;
   ssh = ./ssh;
   tmux = ./tmux;
-  vim = ./vim;
+  # vim = ./vim;
   shells = import ./shells;
   wm = import ./wm;
   eww = import ./eww;

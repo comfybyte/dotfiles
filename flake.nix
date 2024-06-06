@@ -8,9 +8,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixprs.url = "github:comfybyte/nixprs";
+    nixprs.url = "github:lambdys/nixprs";
     steam-tui.url = "github:dmadisetti/steam-tui";
-    quick-stack.url = "github:comfybyte/quick-stack";
+    quick-stack.url = "github:lambdys/quick-stack";
     swayfx.url = "github:willpower3309/swayfx";
     gaming.url = "github:fufexan/nix-gaming";
 
@@ -19,8 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nyanvim = {
+      url = "github:lambdys/nyanvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

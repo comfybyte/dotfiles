@@ -1,12 +1,13 @@
 let
-  noPass = cmd: {
+  mkSudoRule = opts: {
+    groups = ["wheel"];
+  } // opts;
+  noPass = cmd: mkSudoRule {
     inherit cmd;
-    groups = [ "wheel" ];
     noPass = true;
   };
-  persist = cmd: {
+  persist = cmd: mkSudoRule {
     inherit cmd;
-    groups = [ "wheel" ];
     persist = true;
   };
 in {

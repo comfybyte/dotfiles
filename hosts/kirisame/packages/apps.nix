@@ -20,7 +20,6 @@ in {
     emote # Emoji picker.
     firefox-devedition
     stable.floorp
-    librewolf
     tor-browser
     hyprpicker # Colour picker.
     localsend

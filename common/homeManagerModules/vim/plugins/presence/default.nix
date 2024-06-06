@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.presence-nvim = {
-    enable = true;
+    enable = false;
     enableLineNumber = false;
     editingText = "Editing %s";
     readingText = "Reading something";
