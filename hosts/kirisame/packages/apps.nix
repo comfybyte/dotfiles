@@ -21,6 +21,8 @@ in {
     firefox-devedition
     stable.floorp
     tor-browser
+    librewolf
+    lynx
     hyprpicker # Colour picker.
     localsend
     fractal # Matrix client.

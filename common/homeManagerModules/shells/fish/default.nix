@@ -19,20 +19,14 @@
     };
 
     shellAliases = {
-      ls = "eza";
-      la = "eza -a";
-      tree = "eza -T";
-      cat = "bat";
-
       vim = "nvim";
       vi = "nvim";
 
-      # edit nixconfig.
       en = "cd ~/nixcfg && $EDITOR .";
     };
 
     shellInit = ''
-      set -g fish_greeting "<<< Welcome, $(whoami). >>>"
+      set -g fish_greeting "<<< welcome, $(whoami). >>>"
 
       direnv hook fish | source
     '';

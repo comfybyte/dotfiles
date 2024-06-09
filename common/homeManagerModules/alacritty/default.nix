@@ -1,8 +1,8 @@
-{  inputs, system, ... }:
+{ pkgs, ... }:
 let
   font = {
-    package = inputs.nixprs.packages.${system}.zpix-nerd-font;
-    name = "Zpix Nerd Font";
+    package = pkgs.nerdfonts.override { fonts = [ "BigBlueTerminal" ]; };
+    name = "BigBlueTerm437 Nerd Font Mono";
     size = 18;
   };
 in {

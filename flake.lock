@@ -627,13 +627,13 @@
       "locked": {
         "lastModified": 1717569333,
         "narHash": "sha256-MUrK592v16WCgTrEwOFT4Kr00/UF6hAfe7CHYaawktM=",
-        "owner": "lambdys",
+        "owner": "comfybyte",
         "repo": "nixprs",
         "rev": "a1d2531cea5448691f70c6a4c54bcf45e70470fd",
         "type": "github"
       },
       "original": {
-        "owner": "lambdys",
+        "owner": "comfybyte",
         "repo": "nixprs",
         "type": "github"
       }
@@ -675,15 +675,15 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1717643187,
-        "narHash": "sha256-DeV009q7GtwcNX70m/kSa0oe8joIikQSow+od1aco8s=",
-        "owner": "lambdys",
+        "lastModified": 1717893334,
+        "narHash": "sha256-2KNYG913Gr539bW46Q/cIJ9sFT4B7lHP7IJK9r2xyUE=",
+        "owner": "comfybyte",
         "repo": "nyanvim",
-        "rev": "b2ec7064b64875c63628091bd1f7c38038bb0458",
+        "rev": "9be13b70e245836e097df4bf329c484a51a20c56",
         "type": "github"
       },
       "original": {
-        "owner": "lambdys",
+        "owner": "comfybyte",
         "repo": "nyanvim",
         "type": "github"
       }
@@ -716,13 +716,13 @@
       "locked": {
         "lastModified": 1717217116,
         "narHash": "sha256-5KUW9/O5lYp3jfvBRMv2JrQwqTQ4H3cQs8B6833rlzM=",
-        "owner": "lambdys",
+        "owner": "comfybyte",
         "repo": "quick-stack",
         "rev": "a1d110f7764547956feaf7c5425a6ac8fdb0319c",
         "type": "github"
       },
       "original": {
-        "owner": "lambdys",
+        "owner": "comfybyte",
         "repo": "quick-stack",
         "type": "github"
       }

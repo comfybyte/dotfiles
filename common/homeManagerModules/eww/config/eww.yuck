@@ -40,12 +40,15 @@
     (box
       :class "sysinfo-group"
       :orientation "h"
-      :space-evenly false
+      :width "100%"
+      :height "100%"
+      :space-evenly true
       :spacing 8
-      (sysinfo :symbol "CPU " "${round(EWW_CPU.avg, 0)}%"))
+      (sysinfo :symbol "CPU " "${round(EWW_CPU.avg, 0)}%")
       (sysinfo :symbol "MEM " "${round(EWW_RAM.used_mem_perc, 0)}%")
-    (clock)
-  )
+      (clock)
+      )
+    )
 )
 
 (defwidget sysinfo [symbol]

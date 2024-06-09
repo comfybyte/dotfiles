@@ -1,8 +1,7 @@
 {
   programs.starship = {
     enable = true;
-    settings = 
-    let
+    settings = let
       modules = builtins.concatStringsSep "" [
         "$username"
         "$hostname"
@@ -18,12 +17,11 @@
         "$git_branch"
         "$cmd_duration"
       ];
-    in
-    {
+    in {
       command_timeout = 3000;
       format = ''
-      [┌────](bold cyan) ${modules}
-      [└─](bold cyan)$character'';
+        [┌────](bold cyan) ${modules}
+        [└─](bold cyan)$character'';
       character = {
         success_symbol = "[>](bold green)";
         error_symbol = "[>](bold red)";
@@ -44,7 +42,7 @@
         read_only = " <no touchie!>";
         truncation_length = 2;
       };
-      nix_shell = { format = " [$state( ($name))]($style)"; };
+      nix_shell.format = " [$state( ($name))]($style) ";
     };
   };
 }

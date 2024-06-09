@@ -60,8 +60,8 @@ in {
       };
 
       gaps = {
-        inner = 1;
-        outer = 1;
+        inner = 0;
+        outer = 0;
         smartBorders = "on";
       };
 
@@ -143,7 +143,8 @@ in {
 
       startup = [
         { command = "${pkgs.swww}/bin/swww init"; }
-        { command = terminal; }
+        { command = "fcitx5"; }
+        { command = "${terminal} -c tmux new"; }
         {
           command =
             "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";

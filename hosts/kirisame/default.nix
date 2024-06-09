@@ -28,8 +28,10 @@
   environment.shells = with pkgs; [ zsh fish ];
   services = {
     dbus.enable = true;
+    displayManager.defaultSession = "none+i3";
     xserver = {
       enable = true;
+      windowManager.i3.enable = true;
       xkb.layout = "br";
       exportConfiguration = true;
       displayManager.lightdm.enable = false;

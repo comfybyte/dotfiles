@@ -30,7 +30,10 @@ in {
     username = "comfy";
     stateVersion = "23.05";
     homeDirectory = "/home/comfy";
-    sessionVariables = { GTK_USE_PORTAL = "1"; };
+    sessionVariables = {
+      GTK_USE_PORTAL = "1";
+      EDITOR = "nvim";
+    };
     packages = let nyanvim = inputs.nyanvim.legacyPackages.${system};
     in [
       (nyanvim.withConfig {

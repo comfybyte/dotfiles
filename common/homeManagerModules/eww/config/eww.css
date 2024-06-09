@@ -1,32 +1,21 @@
 * {
   all: unset;
-  font-family: "Ubuntu Nerd Font";
-  --hl-bright: "#107CFA";
-  --hl-faint: "#4A7CFD;"
-}
-
-.nyan {
-  background: transparent;
-  font-size: 10px;
+  font-family: "BigBlueTerm437 Nerd Font Mono";
 }
 
 .sysmon {
-  color: var(--hl-bright);
+  color: #107CFA;
   background-color: #000;
-  border: 1px solid var(--hl-faint);
   border-radius: 8px;
   font-size: 18px;
   padding: 8px 2px;
 }
 
+.sysinfo-group {
+  all: unset;
+  border: none;
+}
+
 .sysinfo-symbol {
   color: #fff;
-}
-
-.hour-text, .second-text {
-  color: #e0def4; /* rose pine moon's text */
-}
-
-.minute-text {
-  color: #908caa /* rose pine moon's subtle */
 }
