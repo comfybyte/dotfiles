@@ -48,11 +48,7 @@ in {
       defaultWorkspace = "workspace 1";
       window.titlebar = false;
 
-      bars = [{
-        command = "waybar";
-        position = "top";
-        mode = "dock";
-      }];
+      bars = [];
 
       floating = {
         border = 1;
@@ -75,76 +71,68 @@ in {
         "9" = [{ title = "Obsidian"; }];
       };
 
-      keybindings = let
-        mod = "Mod4";
+      keybindings = let mod = "Mod4";
+      in {
+        "${mod}+q" = "kill";
+        "${mod}+Shift+c" = "reload";
+        "${mod}+Shift+q" = "exit";
 
-        controlBinds = {
-          "${mod}+q" = "kill";
-          "${mod}+Shift+c" = "reload";
-          "${mod}+Shift+q" = "exit";
-        };
-        layoutBinds = {
-          "${mod}+t" = "layout default";
-          "${mod}+r" = ''mode "resize"'';
+        "${mod}+t" = "layout default";
+        "${mod}+r" = ''mode "resize"'';
 
-          "${mod}+f" = "fullscreen";
-          "${mod}+Space" = "floating toggle";
-          "${mod}+Shift+Space" = "focus mode_toggle";
-        };
-        appBinds = {
-          "${mod}+Return" = "exec ${terminal}";
-          "${mod}+d" = "exec ${launcher}";
-          "${mod}+n" = "exec ${file_browser}";
-          "Print" = "exec ${screenshot.screen}";
-          "Shift+Print" = "exec ${screenshot.area}";
-          "${mod}+b" = "exec ${widgets.overlay}";
-          "${mod}+Shift+b" = "exec ${widgets.sysmon}";
-        };
-        workspaceBinds = {
-          switch = {
-            "${mod}+1" = "workspace 1";
-            "${mod}+2" = "workspace 2";
-            "${mod}+3" = "workspace 3";
-            "${mod}+4" = "workspace 4";
-            "${mod}+5" = "workspace 5";
-            "${mod}+6" = "workspace 6";
-            "${mod}+7" = "workspace 7";
-            "${mod}+8" = "workspace 8";
-            "${mod}+9" = "workspace 9";
-            "${mod}+0" = "workspace 10";
-          };
-          move = {
-            "${mod}+Shift+1" = "move container to workspace 1";
-            "${mod}+Shift+2" = "move container to workspace 2";
-            "${mod}+Shift+3" = "move container to workspace 3";
-            "${mod}+Shift+4" = "move container to workspace 4";
-            "${mod}+Shift+5" = "move container to workspace 5";
-            "${mod}+Shift+6" = "move container to workspace 6";
-            "${mod}+Shift+7" = "move container to workspace 7";
-            "${mod}+Shift+8" = "move container to workspace 8";
-            "${mod}+Shift+9" = "move container to workspace 9";
-            "${mod}+Shift+0" = "move container to workspace 10";
-          };
-          focus = {
-            "${mod}+${up}" = "focus up";
-            "${mod}+${right}" = "focus right";
-            "${mod}+${down}" = "focus down";
-            "${mod}+${left}" = "focus left";
-          };
-          shift = {
-            "${mod}+Shift+${up}" = "move up";
-            "${mod}+Shift+${right}" = "move right";
-            "${mod}+Shift+${down}" = "move down";
-            "${mod}+Shift+${left}" = "move left";
-          };
-        };
-      in controlBinds // layoutBinds // appBinds // workspaceBinds.move
-      // workspaceBinds.switch // workspaceBinds.focus // workspaceBinds.shift;
+        "${mod}+f" = "fullscreen";
+        "${mod}+Space" = "floating toggle";
+        "${mod}+Shift+Space" = "focus mode_toggle";
 
+        "${mod}+Return" = "exec ${terminal}";
+        "${mod}+d" = "exec ${launcher}";
+        "${mod}+n" = "exec ${file_browser}";
+        "Print" = "exec ${screenshot.screen}";
+        "Shift+Print" = "exec ${screenshot.area}";
+        "${mod}+b" = "exec ${widgets.overlay}";
+        "${mod}+Shift+b" = "exec ${widgets.sysmon}";
+
+        "${mod}+1" = "workspace 1";
+        "${mod}+2" = "workspace 2";
+        "${mod}+3" = "workspace 3";
+        "${mod}+4" = "workspace 4";
+        "${mod}+5" = "workspace 5";
+        "${mod}+6" = "workspace 6";
+        "${mod}+7" = "workspace 7";
+        "${mod}+8" = "workspace 8";
+        "${mod}+9" = "workspace 9";
+        "${mod}+0" = "workspace 10";
+
+        "${mod}+Shift+1" = "move container to workspace 1";
+        "${mod}+Shift+2" = "move container to workspace 2";
+        "${mod}+Shift+3" = "move container to workspace 3";
+        "${mod}+Shift+4" = "move container to workspace 4";
+        "${mod}+Shift+5" = "move container to workspace 5";
+        "${mod}+Shift+6" = "move container to workspace 6";
+        "${mod}+Shift+7" = "move container to workspace 7";
+        "${mod}+Shift+8" = "move container to workspace 8";
+        "${mod}+Shift+9" = "move container to workspace 9";
+        "${mod}+Shift+0" = "move container to workspace 10";
+
+        "ctrl+${mod}+${up}" = "move up 10px";
+        "ctrl+${mod}+${down}" = "move down 10px";
+        "ctrl+${mod}+${left}" = "move left 10px";
+        "ctrl+${mod}+${right}" = "move right 10px";
+
+        "${mod}+${up}" = "focus up";
+        "${mod}+${right}" = "focus right";
+        "${mod}+${down}" = "focus down";
+        "${mod}+${left}" = "focus left";
+
+        "${mod}+Shift+${up}" = "move up";
+        "${mod}+Shift+${right}" = "move right";
+        "${mod}+Shift+${down}" = "move down";
+        "${mod}+Shift+${left}" = "move left";
+      };
       startup = [
         { command = "${pkgs.swww}/bin/swww init"; }
         { command = "fcitx5"; }
-        { command = "${terminal} -c tmux new"; }
+        { command = "${terminal} -e tmux new"; }
         {
           command =
             "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";
