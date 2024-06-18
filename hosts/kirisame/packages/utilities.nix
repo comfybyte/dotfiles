@@ -51,6 +51,7 @@ in {
     toybox
     gtk4
     keepassxc
+    bitwarden-cli
     yazi
     jot
 
@@ -75,9 +76,6 @@ in {
     cargo
     cargo-info
     nixfmt
-    ghc
-    clojure
-    clj-kondo
 
     quick-stack.default
     nixprs.sshot

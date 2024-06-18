@@ -13,8 +13,9 @@ in {
     discord
     tenacity # Audio editor.
     krita # Image editor.
-    vivaldi
-    vivaldi-ffmpeg-codecs
+    (vivaldi.override {
+      proprietaryCodecs = true;
+    })
     libreoffice-fresh
     obsidian
     emote # Emoji picker.

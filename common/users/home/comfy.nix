@@ -1,4 +1,4 @@
-{ inputs, config, system, ... }:
+{ inputs, config, system, stable, ... }:
 let
   id = {
     name = "Mai";
@@ -34,6 +34,7 @@ in {
       GTK_USE_PORTAL = "1";
       EDITOR = "nvim";
     };
+
     packages = let nyanvim = inputs.nyanvim.legacyPackages.${system};
     in [
       (nyanvim.withConfig {
@@ -42,6 +43,7 @@ in {
           undofile = true;
         };
       })
+      stable.weechat
     ];
   };
   programs.git = {
