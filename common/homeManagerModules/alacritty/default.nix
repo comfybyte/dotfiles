@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ inputs, system, ... }:
 let
   font = {
-    package = pkgs.nerdfonts.override { fonts = [ "BigBlueTerminal" ]; };
-    name = "BigBlueTerm437 Nerd Font Mono";
-    size = 18;
+    package = inputs.nixprs.packages.${system}.spleen-nerd-font;
+    name = "Spleen12x24 Nerd Font";
+    size = 16;
   };
 in {
   home.packages = [ font.package ];
@@ -12,10 +12,6 @@ in {
     settings = {
       window = {
         opacity = 0.8;
-        padding = {
-          x = 2;
-          y = 2;
-        };
       };
       colors.draw_bold_text_with_bright_colors = true;
       font = {
@@ -24,6 +20,7 @@ in {
         bold.family = font.name;
         italic.family = font.name;
         bold_italic.family = font.name;
+        offset.y = -1;
       };
       colors = {
         primary = {

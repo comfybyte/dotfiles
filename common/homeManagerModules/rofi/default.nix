@@ -1,8 +1,4 @@
-{ pkgs, inputs, system, ... }: 
-let
-  nixprs = inputs.nixprs.packages.${system};
-in
-{
+{ pkgs, ... }: {
   programs.rofi = {
     enable = true;
     theme = "midnight_sky";
@@ -13,7 +9,7 @@ in
     yoffset = -32;
   };
 
-  home.packages = [ nixprs.zpix-nerd-font ];
+  home.packages = [ (pkgs.nerdfonts.override { fonts = [ "BigBlueTerminal" ]; }) ];
 
   home.file.".local/share/rofi/themes/midnight_sky.rasi".text =
     import ./theme.nix;
