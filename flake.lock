@@ -675,11 +675,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1717893334,
-        "narHash": "sha256-2KNYG913Gr539bW46Q/cIJ9sFT4B7lHP7IJK9r2xyUE=",
+        "lastModified": 1718906563,
+        "narHash": "sha256-HaVXvIatOZy2EehTALEut9ABvS9tdweqeLrUaFWFRSw=",
         "owner": "comfybyte",
         "repo": "nyanvim",
-        "rev": "9be13b70e245836e097df4bf329c484a51a20c56",
+        "rev": "dca02591b339823d7488226ba4b7f62742ee561e",
         "type": "github"
       },
       "original": {
