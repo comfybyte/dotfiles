@@ -1,8 +1,4 @@
-{ pkgs, inputs, system, ... }: 
-let
-  gaming = inputs.gaming.packages.${system};
-in
-{
+{ pkgs, ... }: {
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
@@ -37,7 +33,6 @@ in
 
     osu-lazer-bin
     winetricks
-    gaming.wine-ge
     prismlauncher
   ];
 }

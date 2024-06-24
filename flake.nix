@@ -1,37 +1,27 @@
 {
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;
     homeManagerModules = import ./common/homeManagerModules;
     nixosModules = import ./common/nixosModules;
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixprs.url = "github:comfybyte/nixprs";
     steam-tui.url = "github:dmadisetti/steam-tui";
     quick-stack.url = "github:comfybyte/quick-stack";
     swayfx.url = "github:willpower3309/swayfx";
-    gaming.url = "github:fufexan/nix-gaming";
+    nyanvim.url = "github:comfybyte/nyanvim";
+    wayland.url = "github:nix-community/nixpkgs-wayland";
 
     home = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "stable";
     };
-
-    nyanvim = {
-      url = "github:comfybyte/nyanvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "unstable";
     };
   };
 
@@ -42,7 +32,6 @@
       "https://nixpkgs-wayland.cachix.org"
       "https://nix-community.cachix.org"
       "https://nixpkgs-wayland.cachix.org"
-      "https://nix-gaming.cachix.org"
     ];
 
     trusted-public-keys = [
@@ -50,7 +39,6 @@
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 }

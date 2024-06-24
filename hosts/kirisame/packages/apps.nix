@@ -1,4 +1,4 @@
-{ pkgs, inputs, stable, system, ... }:
+{ pkgs, inputs, system, ... }:
 let wayland = inputs.wayland.packages.${system};
 in {
   programs.wireshark = {
@@ -8,19 +8,17 @@ in {
   environment.systemPackages = with pkgs; [
     libsForQt5.okular # PDF viewer.
     libsForQt5.kdenlive # video editor.
-    stable.vlc # video player.
+    vlc # video player.
     xfce.tumbler
     discord
     tenacity # Audio editor.
     krita # Image editor.
-    (vivaldi.override {
-      proprietaryCodecs = true;
-    })
+    (vivaldi.override { proprietaryCodecs = true; })
     libreoffice-fresh
     obsidian
     emote # Emoji picker.
     firefox-devedition
-    stable.floorp
+    floorp
     tor-browser
     librewolf
     lynx

@@ -1,7 +1,7 @@
-inputs@{ nixpkgs, ... }:
+inputs@{ stable, unstable, ... }:
 let
-  stableFor = system:
-    import inputs.stable {
+  unstableFor = system:
+    import unstable {
       inherit system;
       config.allowUnfree = true;
     };
@@ -14,10 +14,10 @@ let
     };
   };
 in {
-  kirisame = nixpkgs.lib.nixosSystem (let
+  kirisame = stable.lib.nixosSystem (let
     system = "x86_64-linux";
-    stable = stableFor system;
-    specialArgs = { inherit inputs system stable; };
+    unstable = unstableFor system;
+    specialArgs = { inherit inputs system unstable; };
   in {
     inherit specialArgs;
     modules = [

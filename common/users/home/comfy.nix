@@ -1,4 +1,4 @@
-{ inputs, config, system, stable, ... }:
+{ inputs, config, system, pkgs, ... }:
 let
   id = {
     name = "Mai";
@@ -43,7 +43,7 @@ in {
           undofile = true;
         };
       })
-      stable.weechat
+      pkgs.weechat
     ];
   };
   programs.git = {

@@ -1,4 +1,4 @@
-{ pkgs, stable, inputs, system, ... }:
+{ pkgs, inputs, system, ... }:
 let
   nixprs = inputs.nixprs.packages.${system};
   quick-stack = inputs.quick-stack.packages.${system};
@@ -42,7 +42,7 @@ in {
     du-dust
     bat
     handlr-regex
-    stable.zenith
+    zenith
     transmission
     transmission-gtk
     piper
