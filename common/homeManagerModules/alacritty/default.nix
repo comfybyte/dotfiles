@@ -1,8 +1,8 @@
 { inputs, system, ... }:
 let
   font = {
-    package = inputs.nixprs.packages.${system}.spleen-nerd-font;
-    name = "Spleen12x24 Nerd Font";
+    package = inputs.nixprs.packages.${system}.scientifica-nerd-font;
+    name = "Scientifica Nerd Font";
     size = 16;
   };
 in {

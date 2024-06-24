@@ -54,6 +54,7 @@ in {
     bitwarden-cli
     yazi
     jot
+    pfetch
 
     nix-prefetch-git
     zip

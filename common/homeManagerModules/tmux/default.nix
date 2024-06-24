@@ -31,7 +31,7 @@
       set -g pane-active-border-style "fg=#E0DEF4"
 
       set -g status "on"
-      set -g status-justify "centre"
+      set -g status-justify "left"
 
       set -g status-style "fg=#E0DEF4,bg=#000000"
 
@@ -47,8 +47,8 @@
       setw -g window-status-activity-style "underscore,fg=#828bb8,bg=#000000"
       setw -g window-status-separator ""
       setw -g window-status-style "NONE,fg=#828bb8,bg=#000000"
-      setw -g window-status-format "#[fg=#000000,bg=#000000,nobold,nounderscore,noitalics]#[default] #W #I #F #[fg=#000000,bg=#000000,nobold,nounderscore,noitalics]"
-      setw -g window-status-current-format "#[fg=#000000,bg=##E0DEF4,nobold,nounderscore,noitalics]#[fg=#E0DEF4,bg=#111111,bold] #W #F #[fg=#111111,bg=#000000,nobold,nounderscore,noitalics]"
+      setw -g window-status-format "#[fg=#888888,bg=#000000]  #W #I #F "
+      setw -g window-status-current-format "#[fg=#E0DEF4,bg=#111111,bold]  #W #F "
     '';
   };
 }
