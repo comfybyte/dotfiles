@@ -44,7 +44,7 @@
       :height "100%"
       :space-evenly true
       :spacing 8
-      (systray :orientation "h" :spacing 2 :space-evenly true :icon-size 16)
+      (systray :class "systray" :orientation "h" :spacing 2 :space-evenly true :icon-size 16)
       (sysinfo :symbol "TMP " "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°")
       (sysinfo :symbol "CPU " "${round(EWW_CPU.avg, 0)}%")
       (sysinfo :symbol "MEM " "${round(EWW_RAM.used_mem_perc, 0)}%")

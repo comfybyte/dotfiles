@@ -18,3 +18,12 @@
 .sysinfo-symbol {
   color: #fff;
 }
+
+.systray menu {
+  padding: 4px 0;
+  background-color: #000;
+}
+
+.systray menu menuitem {
+  padding: 6px 0 2px 0;
+}
