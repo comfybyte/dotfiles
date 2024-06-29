@@ -8,11 +8,10 @@
   inputs = {
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixprs.url = "github:comfybyte/nixprs";
-    steam-tui.url = "github:dmadisetti/steam-tui";
-    quick-stack.url = "github:comfybyte/quick-stack";
+    nixprs.url = "github:mtlhrt/nixprs";
+    quick-stack.url = "github:mtlhrt/quick-stack";
+    nyanvim.url = "github:mtlhrt/nyanvim";
     swayfx.url = "github:willpower3309/swayfx";
-    nyanvim.url = "github:comfybyte/nyanvim";
     wayland.url = "github:nix-community/nixpkgs-wayland";
 
     home = {
