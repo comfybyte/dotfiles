@@ -48,7 +48,7 @@ in {
       defaultWorkspace = "workspace 1";
       window.titlebar = false;
 
-      bars = [];
+      bars = [ ];
 
       floating = {
         border = 1;
@@ -143,6 +143,9 @@ in {
         }
       ];
     };
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+    '';
 
     # modes = {
     #   resize = {
@@ -160,6 +163,10 @@ in {
     # };
 
     extraConfig = ''
+      bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+      bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+      bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
       for_window [window_role="pop-up"] floating enable
       for_window [window_role="bubble"] floating enable
       for_window [window_role="task_dialog"] floating enable

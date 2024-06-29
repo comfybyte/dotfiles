@@ -76,7 +76,6 @@ in {
     nodejs_18
     cargo
     cargo-info
-    nixfmt
 
     quick-stack.default
     nixprs.sshot

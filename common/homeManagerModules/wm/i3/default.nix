@@ -1,8 +1,15 @@
 { config, ... }: {
-  xsession.windowManager.i3.enable = true;
+  xsession.windowManager.i3 = {
+    enable = true;
+    extraConfig = ''
+      bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+      bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+      bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    '';
+  };
+
   xsession.windowManager.i3.config = {
     modifier = "Mod4";
-
     keybindings = let
       mod = "Mod4";
       left = "h";

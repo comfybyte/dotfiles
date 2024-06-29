@@ -22,7 +22,8 @@
     enable = true;
     driSupport32Bit = true;
     driSupport = true;
-    extraPackages = with pkgs; [ intel-vaapi-driver vaapiVdpau libvdpau-va-gl ];
+    # extraPackages = with pkgs; [ intel-vaapi-driver vaapiVdpau libvdpau-va-gl ];
+    extraPackages = with pkgs; [ intel-media-driver vaapiVdpau libvdpau-va-gl ];
   };
 
   environment.shells = with pkgs; [ zsh fish ];
@@ -53,6 +54,9 @@
 
     PATH = [ "${XDG_BIN_HOME}" ];
     NIXOS_OZONE_WL = "1";
+
+    # Force intel-media-driver.
+    LIBVA_DRIVER_NAME = "iHD";
   };
 
   xdg.portal = {
