@@ -11,6 +11,7 @@ in {
     vlc # video player.
     xfce.tumbler
     discord
+    vesktop
     tenacity # Audio editor.
     krita # Image editor.
     (vivaldi.override { proprietaryCodecs = true; })

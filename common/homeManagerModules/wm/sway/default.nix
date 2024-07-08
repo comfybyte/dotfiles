@@ -31,9 +31,10 @@ let
   up = "k";
   down = "j";
 in {
-  imports = [ ./waybar ];
+  # imports = [ ./waybar ];
 
   home.packages = with pkgs; [ swww ];
+  home.sessionVariables.SDL_VIDEODRIVER = "wayland";
 
   wayland.windowManager.sway = {
     enable = true;
@@ -143,9 +144,6 @@ in {
         }
       ];
     };
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-    '';
 
     # modes = {
     #   resize = {
