@@ -42,6 +42,7 @@ in {
       screenshot-path "~/imgs/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
       environment {
+        QT_QPA_PLATFORM "wayland"
         SDL_VIDEODRIVER "wayland"
       }
 
