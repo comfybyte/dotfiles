@@ -1,27 +1,45 @@
+# see: https://github.com/YaLTeR/niri
 { pkgs, lib, ... }:
 let
   enableWaybar = true;
   terminal = {
-    name = "alacritty";
+    cmd = "alacritty";
     package = pkgs.alacritty;
   };
   launcher = {
-    name = "fuzzel";
+    cmd = "fuzzel";
     package = pkgs.fuzzel;
   };
   fileBrowser = {
-    name = "nemo";
+    cmd = "nemo";
     package = pkgs.cinnamon.nemo-with-extensions;
+  };
+  notifications = {
+    cmd = "mako";
+    package = pkgs.mako;
   };
 in {
   imports = lib.optional enableWaybar ./waybar;
-  home.packages =
-    [ pkgs.niri terminal.package launcher.package fileBrowser.package ];
+
+  home.packages = [
+    pkgs.niri
+    terminal.package
+    launcher.package
+    fileBrowser.package
+    notifications.package
+  ];
+
   home.file.".config/niri/config.kdl".text = ''
-      spawn-at-startup "alacritty"
+      spawn-at-startup "${notifications.cmd}"
+      spawn-at-startup "${terminal.cmd}"
+      spawn-at-startup "swww-daemon"
+      spawn-at-startup "eww daemon"
+      spawn-at-startup "fcitx5"
       ${lib.optionalString enableWaybar ''spawn-at-startup "waybar"''}
 
       prefer-no-csd // begone, decorations.
+
+      screenshot-path "~/imgs/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
       environment {
         SDL_VIDEODRIVER "wayland"
@@ -36,16 +54,18 @@ in {
       }
 
       layout {
-        gaps 2
+        gaps 0
         default-column-width { proportion 1.0; }
         border { off; }
         focus-ring { off; }
       }
 
       binds {
-        Mod+Return { spawn "${terminal.name}"; }
-        Mod+D { spawn "${launcher.name}"; }
-        Mod+N { spawn "${fileBrowser.name}"; }
+        Mod+Return { spawn "${terminal.cmd}"; }
+        Mod+D { spawn "${launcher.cmd}"; }
+        Mod+N { spawn "${fileBrowser.cmd}"; }
+
+        Mod+B { spawn "eww" "open" "--toggle" "sysmon"; }
 
         XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+4%"; }
         XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-4%"; }

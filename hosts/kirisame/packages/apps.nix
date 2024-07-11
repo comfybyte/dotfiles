@@ -6,26 +6,25 @@ in {
     package = pkgs.wireshark;
   };
   environment.systemPackages = with pkgs; [
-    libsForQt5.okular # PDF viewer.
-    libsForQt5.kdenlive # video editor.
-    vlc # video player.
+    libsForQt5.okular
+    libsForQt5.kdenlive
+    vlc
     xfce.tumbler
-    discord
     vesktop
-    tenacity # Audio editor.
-    krita # Image editor.
+    tenacity
+    krita
     (vivaldi.override { proprietaryCodecs = true; })
     libreoffice-fresh
     obsidian
-    emote # Emoji picker.
+    emote
     firefox-devedition
     floorp
     tor-browser
     librewolf
     lynx
-    hyprpicker # Colour picker.
+    hyprpicker
     localsend
-    fractal # Matrix client.
+    fractal
     wayland.wf-recorder
   ];
 }

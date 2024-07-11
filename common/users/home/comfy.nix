@@ -21,6 +21,7 @@ in {
     shells.fish
     shells.zsh
     shells.starship
+    shells.nu
     wm.sway
     wm.niri
     wm.i3

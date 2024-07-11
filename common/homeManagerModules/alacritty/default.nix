@@ -1,8 +1,8 @@
 { inputs, system, ... }:
 let
   font = {
-    package = inputs.nixprs.packages.${system}.spleen-nerd-font;
-    name = "Spleen12x24 Nerd Font";
+    package = inputs.nixprs.packages.${system}.bedstead-nerd-font;
+    name = "Bedstead Nerd Font SemiCondensed";
     size = 16;
   };
 in {
@@ -10,9 +10,7 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      window = {
-        opacity = 0.8;
-      };
+      window = { opacity = 0.8; };
       colors.draw_bold_text_with_bright_colors = true;
       font = {
         size = font.size;
