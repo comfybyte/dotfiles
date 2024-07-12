@@ -14,6 +14,11 @@
     swayfx.url = "github:willpower3309/swayfx";
     wayland.url = "github:nix-community/nixpkgs-wayland";
 
+    lix = {
+      url =
+        "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      inputs.nixpkgs.follows = "stable";
+    };
     home = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "stable";

@@ -1,4 +1,4 @@
-inputs@{ stable, unstable, ... }:
+inputs@{ stable, unstable, lix, ... }:
 let
   unstableFor = system:
     import unstable {
@@ -22,6 +22,7 @@ in {
     inherit specialArgs;
     modules = [
       ./kirisame
+      lix.nixosModules.default
       inputs.nix-index-database.nixosModules.nix-index
       (homeModulesWith specialArgs)
     ];
