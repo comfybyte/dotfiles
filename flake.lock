@@ -560,15 +560,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1720578464,
-        "narHash": "sha256-nf77xonAskjllfVLhYiZO1t2MuCiXDk6/18mmYFQBF0=",
-        "owner": "mtlhrt",
+        "lastModified": 1720755002,
+        "narHash": "sha256-c8eWvwHX4/3u6vP5eC/mm+dsrz8belf4xf69mkti+w0=",
+        "owner": "comfybyte",
         "repo": "nixprs",
-        "rev": "d20d9be42c978e7e7d93ecf8f70add79248ed953",
+        "rev": "99847c552ddc626cda4f1f16b855587e74868cca",
         "type": "github"
       },
       "original": {
-        "owner": "mtlhrt",
+        "owner": "comfybyte",
         "repo": "nixprs",
         "type": "github"
       }
@@ -608,15 +608,15 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1718906563,
-        "narHash": "sha256-HaVXvIatOZy2EehTALEut9ABvS9tdweqeLrUaFWFRSw=",
-        "owner": "mtlhrt",
+        "lastModified": 1719886317,
+        "narHash": "sha256-terBQ+U9oJ5TGRTIbCCKL2f/lvpNURm2NK1K8GE4HCs=",
+        "owner": "comfybyte",
         "repo": "nyanvim",
-        "rev": "dca02591b339823d7488226ba4b7f62742ee561e",
+        "rev": "df67d517bbce9d8350114ff612353219057f63f5",
         "type": "github"
       },
       "original": {
-        "owner": "mtlhrt",
+        "owner": "comfybyte",
         "repo": "nyanvim",
         "type": "github"
       }
@@ -649,13 +649,13 @@
       "locked": {
         "lastModified": 1719421254,
         "narHash": "sha256-OvNRFsVC4KF5wFYQOQbkBTf7x3wxOxT4b1KAu53CnCg=",
-        "owner": "mtlhrt",
+        "owner": "comfybyte",
         "repo": "quick-stack",
         "rev": "596369164801e905225a37f7fab742e5b3199bb8",
         "type": "github"
       },
       "original": {
-        "owner": "mtlhrt",
+        "owner": "comfybyte",
         "repo": "quick-stack",
         "type": "github"
       }

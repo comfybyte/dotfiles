@@ -8,9 +8,9 @@
   inputs = {
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixprs.url = "github:mtlhrt/nixprs";
-    quick-stack.url = "github:mtlhrt/quick-stack";
-    nyanvim.url = "github:mtlhrt/nyanvim";
+    nixprs.url = "github:comfybyte/nixprs";
+    quick-stack.url = "github:comfybyte/quick-stack";
+    nyanvim.url = "github:comfybyte/nyanvim";
     swayfx.url = "github:willpower3309/swayfx";
     wayland.url = "github:nix-community/nixpkgs-wayland";
 
@@ -30,12 +30,14 @@
       "https://cache.nixos.org"
       "https://nixpkgs-wayland.cachix.org"
       "https://nix-community.cachix.org"
+      "https://comfybyte.cachix.org"
     ];
     trusted-substituters = substituters;
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "comfybyte.cachix.org-1:MDOWRaQIVADC1iluO91OiGrC0gIG+iIe0koTGhYLycg="
     ];
   };
 }
