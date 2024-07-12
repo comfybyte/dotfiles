@@ -1,7 +1,5 @@
 { pkgs, inputs, system, ... }:
-let
-  nixprs = inputs.nixprs.packages.${system};
-  quick-stack = inputs.quick-stack.packages.${system};
+let quick-stack = inputs.quick-stack.packages.${system};
 in {
   programs.fish.enable = true;
   programs.zsh.enable = true;
@@ -38,10 +36,8 @@ in {
     htop
     btop
     dig
-    uutils-coreutils
     du-dust
     bat
-    handlr-regex
     zenith
     transmission
     transmission-gtk
@@ -49,12 +45,9 @@ in {
     pulseaudio
     pavucontrol
     toybox
-    gtk4
     keepassxc
     bitwarden-cli
     yazi
-    jot
-    pfetch
 
     nix-prefetch-git
     zip
@@ -66,18 +59,20 @@ in {
     keychain
     cachix
     wmctrl
-    betterdiscordctl
     p7zip
-    virt-manager
-    nixos-shell
     nix-tree
     ffmpeg
 
+    # virtualisation stuff
+    qemu
+    virt-manager
+    nixos-shell
+
+    # should be devshells
     nodejs_18
     cargo
     cargo-info
 
     quick-stack.default
-    nixprs.sshot
   ];
 }

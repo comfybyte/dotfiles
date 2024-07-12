@@ -32,7 +32,6 @@
     dxvk
 
     osu-lazer-bin
-    winetricks
     prismlauncher
   ];
 }

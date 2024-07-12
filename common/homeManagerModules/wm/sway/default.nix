@@ -16,11 +16,6 @@ let
   terminal = "${pkgs.alacritty}/bin/alacritty";
   launcher = "${pkgs.rofi}/bin/rofi -show run";
   file_browser = "${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
-  screenshot = let nixprs = inputs.nixprs.packages.${system};
-  in {
-    screen = "${nixprs.sshot}/bin/sshot --screen -o $HOME/imgs/screenshots";
-    area = "${nixprs.sshot}/bin/sshot --area -o $HOME/imgs/screenshots";
-  };
   widgets = {
     overlay = "${pkgs.eww}/bin/eww open overlay --toggle";
     sysmon = "${pkgs.eww}/bin/eww open sysmon --toggle";
@@ -88,8 +83,6 @@ in {
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+d" = "exec ${launcher}";
         "${mod}+n" = "exec ${file_browser}";
-        "Print" = "exec ${screenshot.screen}";
-        "Shift+Print" = "exec ${screenshot.area}";
         "${mod}+b" = "exec ${widgets.overlay}";
         "${mod}+Shift+b" = "exec ${widgets.sysmon}";
 
