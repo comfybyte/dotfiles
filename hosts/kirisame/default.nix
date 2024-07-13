@@ -8,13 +8,18 @@
     ./networking
     ./boot
     ./input.nix
+    ./virtualisation.nix
     ../../common/users
     inputs.self.nixosModules.steam
   ];
 
   nix = {
     package = pkgs.nixFlakes;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "@wheel" ];
+      log-lines = 20;
+    };
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -42,8 +47,6 @@
     tumbler.enable = true;
   };
 
-  virtualisation.docker.enable = true;
-  virtualisation.libvirtd.enable = true;
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
@@ -53,8 +56,6 @@
 
     PATH = [ "${XDG_BIN_HOME}" ];
     NIXOS_OZONE_WL = "1";
-
-    # Force intel-media-driver.
     LIBVA_DRIVER_NAME = "iHD";
   };
 

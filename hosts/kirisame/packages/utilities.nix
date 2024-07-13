@@ -63,10 +63,6 @@ in {
     nix-tree
     ffmpeg
 
-    # virtualisation stuff
-    qemu
-    virt-manager
-    nixos-shell
 
     # should be devshells
     nodejs_18
