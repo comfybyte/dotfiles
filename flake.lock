@@ -628,11 +628,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1720755002,
-        "narHash": "sha256-c8eWvwHX4/3u6vP5eC/mm+dsrz8belf4xf69mkti+w0=",
+        "lastModified": 1721167683,
+        "narHash": "sha256-fcnaSMLVnK2dEh4F/AIDyQsrR4gYAxS6J1ugUixlcHk=",
         "owner": "comfybyte",
         "repo": "nixprs",
-        "rev": "99847c552ddc626cda4f1f16b855587e74868cca",
+        "rev": "f01aebdf4302fa34d872c0e92f475ccb45b10f36",
         "type": "github"
       },
       "original": {

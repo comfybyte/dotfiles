@@ -1,8 +1,8 @@
 { inputs, system, ... }:
 let
   font = {
-    package = inputs.nixprs.packages.${system}.bedstead-nerd-font;
-    name = "Bedstead Nerd Font SemiCondensed";
+    package = inputs.nixprs.packages.${system}.effects-eighty-nerd-font;
+    name = "EffectsEighty Nerd Font";
     size = 16;
   };
 in {
