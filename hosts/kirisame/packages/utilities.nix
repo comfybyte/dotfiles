@@ -18,8 +18,6 @@ in {
     imagemagick
     num-utils
     luajit
-    speechd
-    patchelf
     xorg.xhost
     inetutils
     nmap
@@ -38,7 +36,6 @@ in {
     dig
     du-dust
     bat
-    zenith
     transmission
     transmission-gtk
     piper
@@ -48,6 +45,7 @@ in {
     keepassxc
     bitwarden-cli
     yazi
+    mlt
 
     nix-prefetch-git
     zip
@@ -62,7 +60,7 @@ in {
     p7zip
     nix-tree
     ffmpeg
-
+    (wrapOBS { plugins = with obs-studio-plugins; [ wlrobs ]; })
 
     # should be devshells
     nodejs_18

@@ -1,7 +1,7 @@
 # see: https://github.com/YaLTeR/niri
 { pkgs, lib, ... }:
 let
-  enableWaybar = true;
+  enableWaybar = false;
   terminal = {
     cmd = "alacritty";
     package = pkgs.alacritty;

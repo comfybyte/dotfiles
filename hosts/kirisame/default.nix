@@ -19,6 +19,7 @@
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "@wheel" ];
       log-lines = 20;
+      connect-timeout = 20;
     };
   };
   nixpkgs.config.allowUnfree = true;

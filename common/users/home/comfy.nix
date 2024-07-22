@@ -37,16 +37,18 @@ in {
     };
 
     packages = let nyanvim = inputs.nyanvim.legacyPackages.${system};
-    in [
+    in with pkgs; [
       (nyanvim.withConfig {
         opts = {
           undodir = "${config.home.homeDirectory}/.cache/nvim/undodir";
           undofile = true;
         };
       })
-      pkgs.weechat
+      weechat
+      neomutt
     ];
   };
+
   programs.git = {
     enable = true;
     userName = id.name;
@@ -60,6 +62,7 @@ in {
       push.default = "current";
     };
   };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
