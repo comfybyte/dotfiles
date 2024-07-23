@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, unstable, system, ... }:
 let quick-stack = inputs.quick-stack.packages.${system};
 in {
   programs.fish.enable = true;
@@ -46,6 +46,7 @@ in {
     bitwarden-cli
     yazi
     mlt
+    unstable.xwayland-satellite
 
     nix-prefetch-git
     zip
