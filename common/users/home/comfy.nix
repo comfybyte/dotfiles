@@ -8,15 +8,10 @@ let
 in {
   imports = with inputs.self.homeManagerModules; [
     alacritty
-    cursor
     gpg
-    gtk
     kitty
-    qt
-    rofi
     ssh
     tmux
-    # vim
     eww
     shells.fish
     shells.zsh

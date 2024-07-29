@@ -1,8 +1,8 @@
-{ inputs, system, ... }:
+{ pkgs, ... }:
 let
   font = {
-    package = inputs.nixprs.packages.${system}.effects-eighty-nerd-font;
-    name = "EffectsEighty Nerd Font";
+    package = pkgs.nerdfonts.override { fonts = [ "UbuntuMono" ]; };
+    name = "UbuntuMono Nerd Font";
     size = 16;
   };
 in {
