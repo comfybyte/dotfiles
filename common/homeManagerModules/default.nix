@@ -1,5 +1,6 @@
 {
   alacritty = ./alacritty;
+  cursor = ./cursor;
   gpg = ./gpg;
   kitty = ./kitty;
   ssh = ./ssh;

@@ -1,4 +1,4 @@
-{ inputs, config, system, pkgs, ... }:
+{ inputs, system, pkgs, ... }:
 let
   id = {
     name = "Mai";
@@ -8,6 +8,7 @@ let
 in {
   imports = with inputs.self.homeManagerModules; [
     alacritty
+    cursor
     gpg
     kitty
     ssh
@@ -31,14 +32,15 @@ in {
       EDITOR = "nvim";
     };
 
-    packages = let nyanvim = inputs.nyanvim.legacyPackages.${system};
+    packages = let patchy = inputs.patchy.packages.${system};
     in with pkgs; [
-      (nyanvim.withConfig {
-        opts = {
-          undodir = "${config.home.homeDirectory}/.cache/nvim/undodir";
-          undofile = true;
-        };
-      })
+      # (nyanvim.withConfig {
+      #   opts = {
+      #     undodir = "${config.home.homeDirectory}/.cache/nvim/undodir";
+      #     undofile = true;
+      #   };
+      # })
+      patchy.neovim
       weechat
       neomutt
     ];

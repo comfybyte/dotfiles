@@ -1,5 +1,5 @@
 # see: https://github.com/YaLTeR/niri
-{ pkgs, lib, ... }:
+{ pkgs, lib, unstable, ... }:
 let
   enableWaybar = false;
   terminal = {
@@ -12,11 +12,11 @@ let
   };
   fileBrowser = {
     cmd = "nemo";
-    package = pkgs.cinnamon.nemo-with-extensions;
+    package = unstable.nemo-with-extensions;
   };
   notifications = {
-    cmd = "mako";
-    package = pkgs.mako;
+    cmd = "cosmic-notifications";
+    package = unstable.cosmic-notifications;
   };
 in {
   imports = lib.optional enableWaybar ./waybar;

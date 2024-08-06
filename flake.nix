@@ -1,16 +1,29 @@
 {
-  outputs = inputs: {
+  outputs = inputs: 
+  let
+    inherit (inputs) stable;
+    systems = [ "x86_64-linux" ];
+    eachSystem = f: stable.lib.genAttrs systems (system: f stable.legacyPackages.${system});
+  in
+  {
     nixosConfigurations = import ./hosts inputs;
     homeManagerModules = import ./common/homeManagerModules;
     nixosModules = import ./common/nixosModules;
+    devShells = eachSystem (pkgs: {
+          default = pkgs.mkShell {
+            buildInputs = [ pkgs.nil ];
+          };
+        });
   };
 
   inputs = {
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixprs.url = "github:comfybyte/nixprs";
-    quick-stack.url = "github:comfybyte/quick-stack";
     nyanvim.url = "github:comfybyte/nyanvim";
+    quick-stack.url = "github:comfybyte/quick-stack";
+    patchy.url = "github:comfybyte/patchy";
+
     swayfx.url = "github:willpower3309/swayfx";
     wayland.url = "github:nix-community/nixpkgs-wayland";
 
